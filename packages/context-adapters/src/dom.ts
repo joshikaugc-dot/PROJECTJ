@@ -64,7 +64,7 @@ export function readableText(el: Element | null | undefined): string {
   if (!el) return "";
   const html = el as HTMLElement;
   const text = typeof html.innerText === "string" ? html.innerText : (el.textContent ?? "");
-  return text.replace(/ /g, " ").replace(/\n{3,}/g, "\n\n").trim();
+  return text.replace(/\u00a0/g, " ").replace(/\n{3,}/g, "\n\n").trim();
 }
 
 export function rectOf(target: Element | Range | null): { top: number; left: number; bottom: number; right: number } | null {
@@ -93,7 +93,8 @@ export function fieldLabel(el: HTMLElement | null): string | undefined {
     if (text) return text;
   }
   if (el.id) {
-    const label = el.ownerDocument.querySelector(`label[for="${CSS.escape(el.id)}"]`);
+    const id = typeof CSS !== "undefined" && CSS.escape ? CSS.escape(el.id) : el.id.replace(/["\\]/g, "\\$&");
+    const label = el.ownerDocument.querySelector(`label[for="${id}"]`);
     if (label?.textContent?.trim()) return label.textContent.trim();
   }
   return el.getAttribute("placeholder") ?? el.getAttribute("name") ?? undefined;

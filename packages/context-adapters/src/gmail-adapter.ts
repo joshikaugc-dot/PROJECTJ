@@ -40,7 +40,9 @@ export class GmailAdapter extends BaseAdapter {
   protected override getMetadata(snapshot: SelectionSnapshot): Record<string, string | number | boolean> {
     const meta: Record<string, string | number | boolean> = {};
     const container = composeContainer(snapshot.element);
-    const subject = container?.querySelector<HTMLInputElement>(GMAIL_SELECTORS.subjectInput)?.value?.trim();
+    const subjectInput = container?.querySelector<HTMLInputElement>(GMAIL_SELECTORS.subjectInput);
+    // In replies Gmail keeps a hidden subject field; the thread heading is the real subject.
+    const subject = subjectInput && isVisible(subjectInput) ? subjectInput.value.trim() : undefined;
     const threadSubject = snapshot.pageDoc.querySelector(GMAIL_SELECTORS.threadSubject)?.textContent?.trim();
     if (subject) meta.emailSubject = truncate(subject, 200);
     else if (threadSubject) meta.emailSubject = truncate(threadSubject, 200);
