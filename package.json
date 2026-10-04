@@ -1,0 +1,28 @@
+{
+  "name": "contextos",
+  "private": true,
+  "packageManager": "pnpm@10.28.0",
+  "scripts": {
+    "dev": "turbo run dev --parallel",
+    "build": "turbo run build",
+    "typecheck": "turbo run typecheck",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "db:generate": "pnpm --filter @contextos/database db:generate",
+    "db:push": "pnpm --filter @contextos/database db:push",
+    "db:seed": "pnpm --filter @contextos/database db:seed",
+    "db:reset": "pnpm --filter @contextos/database db:reset"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.0",
+    "@types/node": "^22.15.0",
+    "eslint": "^9.39.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "globals": "^16.0.0",
+    "turbo": "^2.5.0",
+    "typescript": "^5.9.0",
+    "typescript-eslint": "^8.46.0",
+    "vitest": "^3.2.0",
+    "jsdom": "^26.1.0"
+  }
+}

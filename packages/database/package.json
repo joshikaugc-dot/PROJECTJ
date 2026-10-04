@@ -1,0 +1,29 @@
+{
+  "name": "@contextos/database",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": { ".": "./src/index.ts" },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "db:generate": "prisma generate",
+    "db:push": "prisma db push",
+    "db:migrate": "prisma migrate dev",
+    "db:seed": "tsx src/seed.ts",
+    "db:reset": "prisma db push --force-reset && tsx src/seed.ts",
+    "postinstall": "prisma generate"
+  },
+  "prisma": { "schema": "prisma/schema.prisma" },
+  "dependencies": {
+    "@contextos/shared": "workspace:*",
+    "@contextos/context": "workspace:*",
+    "@contextos/verticals": "workspace:*",
+    "@prisma/client": "6.19.3"
+  },
+  "devDependencies": {
+    "prisma": "6.19.3",
+    "tsx": "^4.20.0"
+  }
+}
