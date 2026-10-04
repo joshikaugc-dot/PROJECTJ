@@ -21,8 +21,8 @@ export const DEFAULT_BUDGET: ContextBudget = { maxChars: 7000, maxDocuments: 3 }
 const PRIORITY: Record<ContextKey, number> = {
   "company.basics": 0,
   "brand.voice": 1,
-  "user.role": 2,
-  "app.metadata": 3,
+  "app.metadata": 2,
+  "user.role": 3,
   products: 4,
   customers: 5,
   "app.nearby": 6,

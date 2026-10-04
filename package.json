@@ -11,7 +11,8 @@
     "db:generate": "pnpm --filter @contextos/database db:generate",
     "db:push": "pnpm --filter @contextos/database db:push",
     "db:seed": "pnpm --filter @contextos/database db:seed",
-    "db:reset": "pnpm --filter @contextos/database db:reset"
+    "db:reset": "pnpm --filter @contextos/database db:reset",
+    "test:e2e": "node tests/e2e/extension.e2e.mjs"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.0",
@@ -23,6 +24,7 @@
     "typescript": "^5.9.0",
     "typescript-eslint": "^8.46.0",
     "vitest": "^3.2.0",
-    "jsdom": "^26.1.0"
+    "jsdom": "^26.1.0",
+    "playwright": "1.56.1"
   }
 }

@@ -1,4 +1,4 @@
-import { truncate } from "@contextos/shared";
+import { truncate } from "@contextos/shared/client";
 import { BaseAdapter } from "./base-adapter";
 import { isVisible, readableText } from "./dom";
 import type { SelectionSnapshot } from "./types";

@@ -99,6 +99,10 @@ export async function recommend(auth: AuthContext, body: unknown): Promise<Recom
       description: action.description,
       icon: action.icon,
       reason: reasons.join(", ") || undefined,
+      usesPageContext:
+        action.usesPageContext ??
+        vertical.skills.find((s) => s.id === action.skillId)?.requiredContext.includes("app.nearby") ??
+        false,
     })),
     askPlaceholder: vertical.askPlaceholder ?? `Ask ${vertical.name} AI…`,
     contextPreview: contextLabels(vertical, previewContext),
@@ -183,7 +187,7 @@ export async function runAction(auth: AuthContext, body: unknown): Promise<RunRe
   const text = primaryText(appContext);
   const isRefinement = Boolean(req.previousOutput && req.instruction);
   const includePageContext = Boolean(req.includePageContext ?? preference?.includePageContext);
-  const needsNearby = skill.requiredContext.includes("app.nearby");
+  const needsNearby = skill.requiredContext.includes("app.nearby") || Boolean(action?.usesPageContext);
 
   const context = selectRelevantContext({
     company,
@@ -193,7 +197,7 @@ export async function runAction(auth: AuthContext, body: unknown): Promise<RunRe
       userId: auth.userId,
       vertical,
       appContext,
-      includePageContext,
+      includePageContext: includePageContext || needsNearby,
       task: {
         skillId: skill.id,
         requiredContext: skill.requiredContext,

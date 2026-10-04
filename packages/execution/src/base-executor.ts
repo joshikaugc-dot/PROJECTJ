@@ -1,4 +1,4 @@
-import type { ExecutionActionType } from "@contextos/shared";
+import type { ExecutionActionType } from "@contextos/shared/client";
 
 /**
  * Execution layer: turns an AI result into an effect in the user's world.

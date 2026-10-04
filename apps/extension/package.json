@@ -1,0 +1,27 @@
+{
+  "name": "@contextos/extension",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "dev": "node build.mjs --watch",
+    "build:test": "node build.mjs --test",
+    "typecheck": "tsc --noEmit",
+    "icons": "node scripts/make-icons.mjs"
+  },
+  "dependencies": {
+    "@contextos/context-adapters": "workspace:*",
+    "@contextos/execution": "workspace:*",
+    "@contextos/shared": "workspace:*",
+    "lucide-react": "^0.540.0",
+    "react": "19.1.9",
+    "react-dom": "19.1.9"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.1.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "esbuild": "^0.25.0"
+  }
+}

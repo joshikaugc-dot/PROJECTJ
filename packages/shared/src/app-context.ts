@@ -1,5 +1,3 @@
-import { z } from "zod";
-
 /**
  * Identifies which application the user is working in. Adapters produce one of
  * the known ids; anything else is reported as "generic".
@@ -40,32 +38,27 @@ export const COMMON_SURFACES = [
   "page",
 ] as const;
 
-export const appContextSchema = z.object({
+export interface AppContext {
   /** Stable adapter id, e.g. "gmail". */
-  appId: z.string().min(1).max(64),
+  appId: string;
   /** Human readable app name, e.g. "Gmail". */
-  appName: z.string().min(1).max(120),
-  domain: z.string().max(255).default(""),
-  pageTitle: z.string().max(500).default(""),
+  appName: string;
+  domain: string;
+  pageTitle: string;
   /** Origin + pathname only. Query strings and fragments are stripped for privacy. */
-  pageUrl: z.string().max(2000).default(""),
-  selectedText: z.string().max(20_000).optional(),
+  pageUrl: string;
+  selectedText?: string;
   /**
    * Surrounding context (e.g. the email thread being replied to). Only sent
    * when the action asks for it or the user enables page context.
    */
-  nearbyText: z.string().max(8_000).optional(),
-  activeElementType: z.enum(ACTIVE_ELEMENT_TYPES).default("none"),
+  nearbyText?: string;
+  activeElementType: ActiveElementType;
   /** Content of the focused editable field (capped). */
-  fieldValue: z.string().max(20_000).optional(),
-  surface: z.string().max(64).optional(),
-  metadata: z
-    .record(z.string(), z.union([z.string().max(1000), z.number(), z.boolean()]))
-    .default({}),
-});
-
-export type AppContext = z.infer<typeof appContextSchema>;
-export type AppContextInput = z.input<typeof appContextSchema>;
+  fieldValue?: string;
+  surface?: string;
+  metadata: Record<string, string | number | boolean>;
+}
 
 /** Strip query + hash so tokens, ids and search terms never leave the browser. */
 export function sanitizeUrl(rawUrl: string): string {

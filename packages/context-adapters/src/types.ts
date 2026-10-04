@@ -1,4 +1,4 @@
-import type { ActiveElementType, AppContext } from "@contextos/shared";
+import type { ActiveElementType, AppContext } from "@contextos/shared/client";
 
 /**
  * Everything captured at the moment the user invoked ContextOS. The overlay

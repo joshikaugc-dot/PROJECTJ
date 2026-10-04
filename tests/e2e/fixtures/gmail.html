@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Inbox (3) - alex@northstar.test - Gmail</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; background: #f6f8fc; }
+    .nH { display: flex; height: 100vh; }
+    .side { width: 220px; padding: 16px; color: #444; }
+    .main { flex: 1; padding: 16px; }
+    .compose { position: fixed; right: 24px; bottom: 0; width: 520px; background: white; border-radius: 8px 8px 0 0; box-shadow: 0 8px 30px rgba(0,0,0,.2); }
+    .compose .title { background: #404040; color: white; padding: 10px 14px; border-radius: 8px 8px 0 0; font-size: 14px; }
+    .compose .row { border-bottom: 1px solid #eee; padding: 8px 14px; font-size: 14px; }
+    .compose input { border: 0; outline: 0; width: 90%; font-size: 14px; }
+    .Am { min-height: 220px; padding: 12px 14px; font-size: 14px; outline: none; line-height: 1.5; }
+  </style>
+</head>
+<body>
+  <div class="nH">
+    <div class="side">Compose<br/>Inbox<br/>Sent</div>
+    <div class="main">Primary · Promotions · Social</div>
+  </div>
+  <div class="compose" role="dialog" aria-label="New Message">
+    <div class="title">New Message</div>
+    <div class="row">To <span email="john@acme.com" name="John Smith" data-hovercard-id="john@acme.com">John Smith</span></div>
+    <div class="row"><input name="subjectbox" aria-label="Subject" value="Introducing the Northstar Band" /></div>
+    <div class="Am Al editable" id="body" aria-label="Message Body" role="textbox" contenteditable="true" g_editable="true"></div>
+  </div>
+</body>
+</html>

@@ -1,4 +1,4 @@
-import { PRODUCT } from "@contextos/shared";
+import { PRODUCT } from "@contextos/shared/client";
 import { cn } from "@contextos/ui";
 
 export function LogoMark({ className }: { className?: string }) {

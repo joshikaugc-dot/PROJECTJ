@@ -10,3 +10,4 @@ apps/extension/*.zip
 coverage
 *.tsbuildinfo
 next-env.d.ts
+tests/e2e/screenshots

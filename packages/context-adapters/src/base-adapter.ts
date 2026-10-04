@@ -1,4 +1,4 @@
-import { sanitizeUrl, truncate, type AppContext } from "@contextos/shared";
+import { sanitizeUrl, truncate, type AppContext } from "@contextos/shared/client";
 import {
   deepActiveElement,
   dispatchInput,

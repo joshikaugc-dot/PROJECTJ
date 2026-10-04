@@ -101,6 +101,8 @@ export interface ActionDefinition {
   onlyWithoutText?: boolean;
   /** Generic actions this more specific action replaces (de-duplication). */
   supersedes?: string[];
+  /** Needs surrounding page text (e.g. the post being commented on) even if the skill doesn't require it. */
+  usesPageContext?: boolean;
 }
 
 /* ------------------------------------------------------------------ */

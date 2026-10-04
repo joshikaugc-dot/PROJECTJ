@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { ChevronDown, ShieldCheck } from "lucide-react";
-import type { ContextBlock } from "@contextos/shared";
+import type { ContextBlock } from "@contextos/shared/client";
 import { Badge, cn } from "@contextos/ui";
 
 /** "Using: Marketing · Northstar · Brand Voice · Gmail Context" + an inspector. */

@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { Check, Copy, Loader2, RefreshCw, Sparkles } from "lucide-react";
-import type { AppContext, RecommendResponse, RunResponse } from "@contextos/shared";
+import type { AppContext, RecommendResponse, RunResponse } from "@contextos/shared/client";
 import { Badge, Button, Card, CardContent, CardHeader, CardTitle, Input, Textarea, cn } from "@contextos/ui";
 import { api } from "@/lib/client";
 import { ContextChips } from "./context-chips";
