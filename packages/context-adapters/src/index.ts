@@ -1,0 +1,10 @@
+export * from "./types";
+export * from "./dom";
+export { BaseAdapter, findTextRange } from "./base-adapter";
+export { GenericWebAdapter } from "./generic-web-adapter";
+export { GmailAdapter, GMAIL_SELECTORS } from "./gmail-adapter";
+export { LinkedInAdapter, LINKEDIN_SELECTORS } from "./linkedin-adapter";
+export { GoogleDocsAdapter } from "./google-docs-adapter";
+export { NotionAdapter } from "./notion-adapter";
+export { HubSpotAdapter } from "./hubspot-adapter";
+export { createAdapters, detectAdapter } from "./registry";
