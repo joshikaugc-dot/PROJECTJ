@@ -5,7 +5,7 @@ import { Badge, Card } from "@contextos/ui";
 import { ClearHistoryButton } from "@/components/clear-history-button";
 import { PageHeader } from "@/components/page-header";
 import { requirePageAuth } from "@/lib/server/auth";
-import { formatDateTime } from "@/lib/format";
+import { executedLabel, formatDateTime } from "@/lib/format";
 
 export const metadata = { title: "History" };
 
@@ -60,7 +60,7 @@ export default async function HistoryPage() {
                 <td className="px-4 py-2.5">
                   <Link href={`/history/${a.id}`} className="font-medium hover:underline">{a.label}</Link>
                   {a.status === "FAILED" && <Badge variant="warning" className="ml-2">Failed</Badge>}
-                  {a.executedAs && <Badge variant="secondary" className="ml-2 capitalize">{a.executedAs}d</Badge>}
+                  {a.executedAs && <Badge variant="secondary" className="ml-2">{executedLabel(a.executedAs)}</Badge>}
                 </td>
                 <td className="max-w-[180px] truncate px-4 py-2.5 text-muted-foreground">{preview(a.inputText ?? a.instruction, 60)}</td>
                 <td className="max-w-[220px] truncate px-4 py-2.5 text-muted-foreground">{preview(a.outputText ?? a.error, 70)}</td>

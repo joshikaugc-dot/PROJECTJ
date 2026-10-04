@@ -139,14 +139,14 @@ kbd {
 
 /* Footer: context indicator ------------------------------------------- */
 .footer {
-  display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
+  display: flex; align-items: center; gap: 6px; flex-wrap: nowrap; white-space: nowrap; overflow: hidden;
   padding: 7px 12px; border-top: 1px solid var(--border);
   background: var(--bg-subtle); font-size: 11.5px; color: var(--fg-muted);
 }
 .using { display: inline-flex; align-items: center; gap: 4px; color: var(--fg-faint); }
-.ctx { color: var(--fg); opacity: 0.8; }
+.ctx { color: var(--fg); opacity: 0.8; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
 .ctx + .ctx::before { content: "·"; margin-right: 6px; color: var(--fg-faint); }
-.link { border: 0; background: none; color: var(--accent); padding: 0; font-size: 11.5px; }
+.link { border: 0; background: none; color: var(--accent); padding: 0; font-size: 11.5px; flex-shrink: 0; }
 .link:hover { text-decoration: underline; }
 .spacer { flex: 1; }
 .toggle { display: inline-flex; align-items: center; gap: 6px; cursor: pointer; user-select: none; }

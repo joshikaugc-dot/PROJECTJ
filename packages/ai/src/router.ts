@@ -21,7 +21,7 @@ export interface RouteCandidate {
  */
 export const DEFAULT_ROUTING: Record<TaskType, RouteCandidate[]> = {
   "fast-rewrite": [
-    { provider: "anthropic", tier: "balanced" },
+    { provider: "anthropic", tier: "fast" },
     { provider: "openai", tier: "fast" },
     { provider: "gemini", tier: "fast" },
   ],

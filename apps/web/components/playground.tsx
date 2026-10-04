@@ -114,16 +114,17 @@ export function Playground() {
         {error && <p className="text-sm text-destructive">{error}</p>}
         {result && (
           <div className="flex flex-col gap-3 rounded-lg border border-border bg-muted/30 p-4">
-            <div className="flex items-center justify-between gap-2">
-              <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                <span className="font-medium text-foreground">{result.skill.name}</span>
-                <span>·</span>
-                <span>{result.provider} / {result.model}</span>
-                <span>·</span>
-                <span>{(result.latencyMs / 1000).toFixed(1)}s</span>
-                {result.demoMode && <Badge variant="warning">Demo model — add an API key for real AI</Badge>}
+            <div className="flex items-start justify-between gap-3">
+              <div className="min-w-0">
+                <div className="font-medium">{result.skill.name}</div>
+                <div className="mt-0.5 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-muted-foreground">
+                  <span>{result.provider} · {result.model}</span>
+                  <span>{(result.latencyMs / 1000).toFixed(1)}s</span>
+                  {result.workflowTrace.length > 1 && <span>{result.workflowTrace.length}-step workflow</span>}
+                  {result.demoMode && <Badge variant="warning">Demo model — add an API key for real AI</Badge>}
+                </div>
               </div>
-              <div className="flex gap-1">
+              <div className="flex shrink-0 gap-1">
                 <Button
                   size="sm"
                   variant="ghost"

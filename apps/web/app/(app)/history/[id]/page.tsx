@@ -6,7 +6,7 @@ import { Badge, Card, CardContent, CardHeader, CardTitle } from "@contextos/ui";
 import { CopyButton } from "@/components/copy-button";
 import { PageHeader } from "@/components/page-header";
 import { requirePageAuth } from "@/lib/server/auth";
-import { formatDateTime } from "@/lib/format";
+import { executedLabel, formatDateTime } from "@/lib/format";
 
 export const metadata = { title: "AI action" };
 
@@ -31,7 +31,7 @@ export default async function HistoryDetailPage({ params }: { params: Promise<{ 
         actions={
           <>
             <Badge variant="secondary" className="capitalize">{action.verticalId}</Badge>
-            {action.executedAs && <Badge className="capitalize">{action.executedAs}d</Badge>}
+            {action.executedAs && <Badge>{executedLabel(action.executedAs)}</Badge>}
             {action.status === "FAILED" && <Badge variant="warning">Failed</Badge>}
           </>
         }

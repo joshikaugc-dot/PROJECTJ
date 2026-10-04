@@ -18,3 +18,9 @@ export function formatDateTime(date: Date): string {
     minute: "2-digit",
   });
 }
+
+const EXECUTED_LABELS: Record<string, string> = { replace: "Replaced", insert: "Inserted", copy: "Copied" };
+
+export function executedLabel(type: string): string {
+  return EXECUTED_LABELS[type] ?? type;
+}
